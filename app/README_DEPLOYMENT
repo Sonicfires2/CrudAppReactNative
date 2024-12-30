@@ -1,0 +1,41 @@
+To deploy,
+
+FIRST, log into your expo account on your terminal
+
+NOTE: 
+- use 'eas whoami' to see if you are logged in or not 
+
+SECOND, run 'eas init' to create a project based on your code into your eas account
+
+THIRD, run 'eas build:configure' and then select 'All' or 'Android' or 'IOS' (there is some disadvantages to doing both Android and IOS immediately if you are starting out) 
+Note: You need developer account fo Android and IOS. For Android, it isnt bullshit to get your app a build, however, for IOS, you gonna want a developer account for that
+=> This will create a eas.config file for you
+
+FOURTH: Go to .gitignore file, just in case if you CREATED A LOCAL BUILD for ANDROID AND/OR IOS
+- put in /ios and /android into the .gitignore file. 
+We have to do this cause if Expo see a ios or android folder in our directory, it wont make the build because it affraid that it might overwrite sth. 
+
+FIFTH:
+Run 'npx expo install --check' to check for dependencies
+WARNINGS: If the require you to DOWNGRADE dependencies, DONT DO IT, unless complete neccesary.
+You could always install the needed dependencies and then change the version of the package as needed.
+You can get the latest version by doing:
+'npm install [package-name]@latest'
+NOTE: Rerun the application to make sure
+
+SIXTH:
+eas build --profile [build-type] --platform [platform-you-want-to-build]
+install expo-dev-client if needed. 
+NOTE: go to expo.dev dashboard to check progress 
+
+SEVEN:
+scan the QR code or use the URL to build and install the app. 
+
+EIGHT:
+Once app is installed, you can start the development server using 
+npx expo start 
+or
+npx expo start --tunnel
+
+There you go! You now have a native app working on a phone FOR DEVELOPMENT, NOT PRODUCTION
+
